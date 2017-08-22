@@ -1,4 +1,5 @@
 class BoardsController < ApplicationController
+	before_action :require_login
 
 	def index
 		#probably admin only

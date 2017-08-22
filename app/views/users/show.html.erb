@@ -1,6 +1,8 @@
 <%= @user.full_name %><br><br>
 <%= @user.email %><br><br>
 
+<%= link_to "Log Out", logout_path, method: 'delete' %><br><br>
+
 Projects: 
 <% if @projects %>
 	<% @projects.each do |project| %>

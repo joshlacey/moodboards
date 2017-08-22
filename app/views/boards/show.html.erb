@@ -7,7 +7,7 @@ Users: <% @board.project.users.each do |user| %>
 Images on This Board:
 <% @board.images.each do |image| %>
 	<br><br>
-	<%= image.title %>
+	<%= image_tag image.url %>
 <% end %>
 <br><br>
 

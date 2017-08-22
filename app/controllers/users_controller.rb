@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-
-  #has_required_password
+  before_action :require_login
 
   def index
     @users = User.all
