@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  #has_required_password
-
   def index
     @users = User.all
   end
