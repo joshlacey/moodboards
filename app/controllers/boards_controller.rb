@@ -8,6 +8,7 @@ class BoardsController < ApplicationController
 
 	def show
 		@board = Board.find_by(id: params[:id])
+		session[:board_id] = @board.id
 	end
 
 	def new

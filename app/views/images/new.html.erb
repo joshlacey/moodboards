@@ -6,7 +6,7 @@
 	<%= f.label :url, "File name" %>
 	<%= f.text_field :url %><br><br>
 
-	<%= f.collection_select :board_id, @boards, :id, :title %>
+	<%= f.hidden_field :board_id, value: session[:board_id] %>
 	<%= f.hidden_field :user_id, value: session[:user_id] %>
 
 	<%= f.submit %>

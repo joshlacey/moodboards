@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
-
+    if logged_in?
+      redirect_to user_path(current_user)
+    end
   end
 
   def create
@@ -11,7 +13,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:message] = "Username or password is incorrect."
-      redirect_to signin_path
+      redirect_to root_path
     end
   end
 
