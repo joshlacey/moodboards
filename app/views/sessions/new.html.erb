@@ -4,15 +4,18 @@
 		<br>
 		<br>
 	<% end %>
-	<%= form_tag login_path do %>
-		<label>Email:</label>
-		<%= text_field_tag 'user[email]' %>
-
-		<label>Password:</label>
-		<%= password_field_tag 'user[password]' %>
-
-		<%= submit_tag "Log In", class: "ui secondary button" %>
-
+	<%= form_tag login_path, id: "login" do %>
+		<div>
+			<label>Email:</label>
+			<%= text_field_tag 'user[email]' %>
+		</div>
+		<div>
+			<label>Password:</label>
+			<%= password_field_tag 'user[password]' %>
+		</div>
+		<div>
+			<%= submit_tag "Log In", class: "ui secondary button" %>
+		</div>
 	<% end %>
 
 	<%= link_to "Sign Up", new_user_path %>
