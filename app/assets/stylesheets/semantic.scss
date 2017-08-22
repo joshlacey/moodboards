@@ -3,21 +3,29 @@
 
 //***Body***//
 
-.container {
-  padding: 10px;
+body {
+  background-color: #ccc;
 }
 
-
+// .container {
+//   background-color: #dfdcdc;
+// }
 //***Navigation***//
-
-
 
 
 
 //***Main content***//
 
+hr.line {
+  border-top: 1px solid #ccc;
+  width: 70%; margin-left: 0;
+ }
 
-
+span.title {
+  color: white;
+  font-weight: bold;
+  margin-left: 60%;
+}
 
 
 //***Login Page***//
@@ -32,3 +40,12 @@ form#login div {
 }
 
 //***Images***//
+
+
+
+
+//***Comments***//
+
+.comment-padding {
+  padding-top: 20%;
+}
