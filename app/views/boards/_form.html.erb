@@ -1,1 +1,10 @@
-_form.html.erb
+<%= form_for @board do |f| %>
+	<%= f.label :title, "Board Title" %>
+	<%= f.text_field :title %><br><br>
+
+	<%= f.label :project_id, "Associated Project" %>
+	<%= f.collection_select :project_id, Project.all, :id, :title %><br><br>
+
+	<%= f.submit %>
+
+<% end %>

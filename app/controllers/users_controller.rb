@@ -22,6 +22,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @projects = Project.all.select {|project| project.users.include?(@user)}
   end
 
   def edit

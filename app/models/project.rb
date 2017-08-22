@@ -5,5 +5,10 @@ class Project < ApplicationRecord
 	has_many :comments
 	has_many :images, through: :boards
 
+	before_save :clean_users
+
+	def clean_users
+		users.reject {|user| user.blank?}
+	end
 
 end

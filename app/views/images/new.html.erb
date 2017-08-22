@@ -1,1 +1,14 @@
-new image form
+<%= form_for @image do |f| %>
+
+	<%= f.label :title, "Title of image" %>
+	<%= f.text_field :title %><br><br>
+
+	<%= f.label :url, "File name" %>
+	<%= f.text_field :url %><br><br>
+
+	<%= f.collection_select :board_id, @boards, :id, :title %>
+	<%= f.hidden_field :user_id, value: @user.id %>
+
+	<%= f.submit %>
+
+<% end %>

@@ -1,1 +1,16 @@
-_form.html.erb
+<%= form_for @project do |f| %>
+ <%= f.label :title, "Project Title" %><br>
+ <%= f.text_field :title %><br><br>
+
+ <%= f.label :description, "Project Description" %><br>
+ <%= f.text_area :description %><br><br>
+
+ <%= f.label :users, "Please select all collaborators" %>
+ <%= f.collection_check_boxes :user_ids, User.all, :id, :full_name do |user| %>
+  <%= user.label %>
+ 	<%= user.check_box %>
+	<% end %>
+
+ <%= f.submit %>
+
+<% end %>

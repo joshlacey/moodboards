@@ -11,6 +11,9 @@ class ImagesController < ApplicationController
 
 	def new
 		@image = Image.new
+		@user = User.find_by(id: session[:user_id])
+		@projects = Project.all.select {|project| project.users.include?(@user)}
+		@boards = @projects.map {|project| project.boards if !project.boards.empty?}.flatten
 	end
 
 	def create

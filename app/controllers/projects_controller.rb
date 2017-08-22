@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    # @user = User.find_by(id: session[:user_id])
+    # @project.users << @user
     if @project.save
       redirect_to project_path(@project)
     else
@@ -40,7 +42,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :status, :description)
+    params.require(:project).permit(:title, :status, :description, user_ids: [])
   end
 
 end

@@ -1,1 +1,18 @@
-board show page
+<%= @board.title %><br>
+Project: <%= @board.project.title %><br>
+Users: <% @board.project.users.each do |user| %>
+	<%= link_to "#{user.full_name}", user_path(user) %>
+	<br>
+	<% end %>
+Images on This Board:
+<% @board.images.each do |image| %>
+	<br><br>
+	<%= image.title %>
+<% end %>
+<br><br>
+
+<%= link_to "Add an image to this board", new_image_path %>
+
+<%= link_to "Edit this board", edit_board_path(@board) %><br>
+
+<%= link_to "Go to this board's project page", project_path(@board.project) %>
