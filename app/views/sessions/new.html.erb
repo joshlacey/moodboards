@@ -1,17 +1,20 @@
-<% if flash[:message] %>
-	<%= flash[:message] %>
-	<br>
-	<br>
-<% end %>
-<%= form_tag login_path do %>
-	<label>Email:</label>
-	<%= text_field_tag 'user[email]' %>
+<div class="container">
+	<% if flash[:message] %>
+		<%= flash[:message] %>
+		<br>
+		<br>
+	<% end %>
+	<%= form_tag login_path do %>
+		<label>Email:</label>
+		<%= text_field_tag 'user[email]' %>
 
-	<label>Password:</label>
-	<%= password_field_tag 'user[password]' %>
+		<label>Password:</label>
+		<%= password_field_tag 'user[password]' %>
 
-	<%= submit_tag "Log In", class: "ui button" %>
+		<%= submit_tag "Log In", class: "ui secondary button" %>
 
-<% end %>
+	<% end %>
 
-<%= link_to "Sign Up", new_user_path %>
+	<%= link_to "Sign Up", new_user_path %>
+
+</div>
