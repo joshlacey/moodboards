@@ -14,11 +14,18 @@ class CommentsController < ApplicationController
 
 	def create
 		@comment = Comment.new(comment_params)
+		@comment.user = current_user
 		if @comment.save
-			@project = @comment.project
-			redirect_to project_path(@project)
+			if @comment.image_id
+				redirect_to image_path(@comment.image)
+			elsif @comment.board_id
+				redirect_to board_path(@comment.board)
+			elsif @comment.project_id		
+				redirect_to project_path(@project)
+			end
 		else
-			render :new
+			#CHANGE LATER
+			redirect_to root_path
 		end
 	end
 

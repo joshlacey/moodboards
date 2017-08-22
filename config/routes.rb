@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'sessions#new'
   post '/login', to: 'sessions#create', as: 'login'
   delete '/logout', to: 'sessions#destroy', as: 'logout'
+  post '/comments', to: 'comments#create'
 
 
 end

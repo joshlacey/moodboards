@@ -4,6 +4,21 @@ Users: <% @project.users.each do |user| %>
 	<%= link_to "#{user.full_name}", user_path(user) %>
 	<% end %>
 	<br>
+
+<% if @project.comments %>
+		Comments For This Project:
+		<% @project.comments.each do |comment| %>
+			<p><%= "#{comment.content}" %></p>
+		<% end %>
+	<% end %>
+
+	<%= form_tag '/comments', method: 'post' do %>
+	<%= hidden_field_tag 'comment[project_id]', @project.id %>
+	<%= text_area_tag 'comment[content]' %>
+	<%= submit_tag "Add a comment" %>
+<% end %>
+
+
 <%= link_to "Edit this project", edit_project_path(@project) %><br>
 <%= link_to "All Projects", projects_path %>
 

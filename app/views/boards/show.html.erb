@@ -1,16 +1,31 @@
 <div class="ui container">
 
 	<%= @board.title %><br>
-	Project: <%= @board.project.title %><br>
+	Project: <%= link_to "#{@board.project.title}", project_path(@board.project) %><br>
 	Users: <% @board.project.users.each do |user| %>
 		<%= link_to "#{user.full_name}", user_path(user) %>
 		<br>
 		<% end %>
+	<% if @board.comments %>
+		Comments For This Board:
+		<% @board.comments.each do |comment| %>
+			<p><%= "#{comment.content}" %></p>
+		<% end %>
+	<% end %>
+
+	<%= form_tag '/comments', method: 'post' do %>
+	<%= hidden_field_tag 'comment[board_id]', @board.id %>
+	<%= text_area_tag 'comment[content]' %>
+	<%= submit_tag "Add a comment" %>
+<% end %>
+
 	Images on This Board:
 
 		<div class="ui three column grid">
 			<% @board.images.each do |image| %>
-				<div class="column"><%= image_tag image.url, class: "ui fluid image" %></div>
+				<div class="column">
+				<%= link_to image_tag(image.url), image_path(image), class: "ui fluid image" %>
+				</div>
 			<% end %>
 		</div>
 
