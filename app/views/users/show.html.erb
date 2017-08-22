@@ -1,18 +1,20 @@
-<%= @user.full_name %><br><br>
-<%= @user.email %><br><br>
+<div class="container">
+	<%= @user.full_name %><br><br>
+	<%= @user.email %><br><br>
 
-<%= link_to "Log Out", logout_path, method: 'delete' %><br><br>
+	<%= link_to "Log Out", logout_path, method: 'delete' %><br><br>
 
-Projects: 
-<% if @projects %>
-	<% @projects.each do |project| %>
-		<%= link_to "#{project.title}", project_path(project) %><br>
-	<% end %><br><br>
-<% else %>
-	<%= "#{@user.first_name} doesn't currently have any projects." %>
-<% end %>
+	Projects: 
+	<% if @projects %>
+		<% @projects.each do |project| %>
+			<%= link_to "#{project.title}", project_path(project) %><br>
+		<% end %><br><br>
+	<% else %>
+		<%= "#{@user.first_name} doesn't currently have any projects." %>
+	<% end %>
 
-<%= link_to "Create a New Project", new_project_path %><br><br>
+	<%= link_to "Create a New Project", new_project_path %><br><br>
 
-<%= link_to "Edit #{@user.first_name}", edit_user_path(@user) %><br><br>
-<%= link_to "To All Users", users_path %>
+	<%= link_to "Edit #{@user.first_name}", edit_user_path(@user) %><br><br>
+	<%= link_to "To All Users", users_path %>
+</div>

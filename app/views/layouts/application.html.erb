@@ -9,6 +9,19 @@
   </head>
 
   <body>
+  	<!-- start navbar -->
+  	<div class="ui secondary pointing menu">
+		  <%= link_to "Home", root_path, class: "active item" %>
+		  <div class="right menu">
+		    <% if !logged_in? %>
+		    <%= link_to "Sign Up", new_user_path, class: "ui item" %>
+		    <% else %>
+		    <%= link_to "Log Out", logout_path, method: 'delete', class: "ui item" %><br><br>
+		    <% end %>
+		  </div>
+		</div>
+	</div>
+	<!-- end navbar -->
     <%= yield %>
   </body>
 </html>
