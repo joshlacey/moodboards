@@ -6,16 +6,16 @@
 <%= link_to "Edit", edit_board_path(@board) %><br>
 
 
-<div class="ui container">
+<div class="wrapper">
 
 	<div style="padding-top: 20px;">
 		<%= link_to "#{@board.project.title}", project_path(@board.project), style: "color: white; font-size: 3em; margin-left:20%;" %><br>
 	</div>
 
-		<div class="ui three column grid" style="margin-top: 30px;">
+		<div class="masonry" style="margin-top: 30px;">
 
 			<% @board.images.each do |image| %>
-				<div class="column">
+				<div class="item_brick">
 				<%= link_to image_tag(image.url), image_path(image), class: "ui fluid image" %>
 				</div>
 			<% end %>
