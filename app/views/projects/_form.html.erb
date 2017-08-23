@@ -3,16 +3,17 @@
  <%= f.label :title, "Project Title" %><br>
  <%= f.text_field :title %><br><br>
 
- <%= f.label :description, "Project Description" %><br>
+ <%= f.label :description, "Project Description", :class => "project-desc" %><br>
  <%= f.text_area :description %><br><br>
 
- <%= f.label :users, "Please select all collaborators" %><br>
+ <%= f.label :users, "Please select all collaborators", :class => "one-vw-font underline" %><br><br>
  <%= f.collection_check_boxes :user_ids, User.all, :id, :full_name do |user| %>
-  <%= user.label :class => "checkbox"%>
- 	<%= user.check_box %>
+  <%= user.label :class => "checkbox one-vw-font"%>
+ 	<%= user.check_box :class => "mar-right-checkbox"%>
 	<% end %>
-
- <%= f.submit %>
+<br>
+<br>
+ <%= f.submit :class => "ui button"%>
 
 <% end %>
 
