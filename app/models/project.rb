@@ -11,4 +11,12 @@ class Project < ApplicationRecord
 		users.reject {|user| user.blank?}
 	end
 
+	def approve
+		self.status = "approved"
+	end
+
+	def reject
+		self.status = "rejected"
+	end
+
 end

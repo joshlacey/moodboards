@@ -18,6 +18,15 @@
 		  	<% if current_user.admin? %>
 		  		<%= link_to "See All Users", users_path, class: "ui item" %>
 		  	<% end %>
+		  	<% if @project %>
+		  		<% if @project.status == "pending" %>
+		<span class="ui horizontal yellow label"><%= @project.status %></span>
+		<% elsif @project.status == "approved" %>
+		<span class="ui horizontal green label"><%= @project.status %></span>
+		<% elsif @project.status == "rejected" %>
+		<span class="ui horizontal red label"><%= @project.status %></span>
+		<% end %>
+		  		<% end %>
 		  <% end %>
 		  <div class="right menu">
 		    <% if !logged_in? %>

@@ -40,6 +40,20 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def approve_project
+    @project = Project.find_by(id: params[:project_id])
+    @project.approve
+    @project.save
+    redirect_to project_path(@project)
+  end
+
+  def reject_project
+    @project = Project.find_by(id: params[:project_id])
+    @project.reject
+    @project.save
+    redirect_to project_path(@project)
+  end
+  
   private
 
   def project_params

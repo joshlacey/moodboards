@@ -1,6 +1,9 @@
 
 <div class="floating_box">
 	<div class="button_link">
+		<%= link_to "Back to Project", project_path(@board.project) %>
+	</div>
+	<div class="button_link">
 		<%= link_to "Add Image", new_image_path %>
 	</div>
 	<div class="button_link">
@@ -10,8 +13,8 @@
 
 <div class="ui container fix">
 
-	<div style="padding-top: 20px;">
-		<%= link_to "#{@board.project.title}", project_path(@board.project), style: "color: #808080; font-size: 3em; margin-left:20%;" %><br>
+	<div class="board-show-title">
+		<%= @board.title  %><br>
 	</div>
 
 		<div class="masonry" style="margin-top: 30px;">
