@@ -7,7 +7,7 @@
 
  <%= f.label :users, "Please select all collaborators" %>
  <%= f.collection_check_boxes :user_ids, User.all, :id, :full_name do |user| %>
-  <%= user.label %>
+  <%= user.label :class => "ui checkbox"%>
  	<%= user.check_box %>
 	<% end %>
 
