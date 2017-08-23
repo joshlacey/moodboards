@@ -12,6 +12,28 @@ body {
 // }
 //***Navigation***//
 
+.floating_box{
+  margin-top: 20%;
+  width: 5%;
+  float: left;
+}
+
+.button_link {
+  margin-bottom: 20px;
+  background-color: #808080;
+  padding: 10px;
+  border-radius: 0px 20px 20px 0px;
+
+}
+//***Links***//
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: black;
+}
 
 
 //***Main content***//
@@ -40,11 +62,30 @@ form#login div {
 
 //***Images***//
 
+.image_top_padding {
+  margin-top: 5%;
+}
 
+.ui.grid.fix {
+  margin-top: 5%;
+}
 
-
+.ui.container.fix {
+  margin-top: 5%;
+}
 //***Comments***//
 
 .comment-padding {
   padding-top: 20%;
+}
+
+//***footer***//
+
+.footer {
+  margin-top: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 10px;
+  bottom: 0px;
+  background-color: #808080;
 }

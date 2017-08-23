@@ -1,5 +1,5 @@
 <div class="ui container">
-	<div class="ui two column grid">
+	<div class="ui two column grid fix">
 		<div class="column">
 			<%= image_tag @image.url, class: "ui fluid image" %><br>
 		  <span style="margin-right: 80px;">Uploaded by: <%= link_to "#{@image.user.full_name}", user_path(@image.user) %></span>
