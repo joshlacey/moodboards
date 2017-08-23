@@ -1,36 +1,50 @@
-<%= @project.title %><br>
-<%= @project.description %><br>	
-Users: <% @project.users.each do |user| %>
-	<%= link_to "#{user.full_name}", user_path(user) %>
-	<% end %>
-	<br>
-
-<% if @project.comments %>
-		Comments For This Project:
-		<% @project.comments.each do |comment| %>
-			<p><%= "#{comment.content}" %></p>
-		<% end %>
-	<% end %>
-
-	<%= form_tag '/comments', method: 'post' do %>
-	<%= hidden_field_tag 'comment[project_id]', @project.id %>
-	<%= text_area_tag 'comment[content]' %>
-	<%= submit_tag "Add a comment" %>
-<% end %>
-
 
 <%= link_to "Edit this project", edit_project_path(@project) %><br>
 <%= link_to "All Projects", projects_path %>
 
-<h3>Boards</h3>
-<% if !@project.boards.empty? %>
-	<% @project.boards.each do |board| %>
-		<%= link_to "#{board.title}", board_path(board) %><br>
-		# of images - <%= board.images.count %><br>
-	<% end %>
-	<% else %>
-	<%= "This project does not currently have any associated boards." %>
-<% end %>
-<br>
-<br>
-<%= link_to "Add a board to this project", new_board_path %>
+
+<div class="ui container">
+	<div class="ui two column grid fix">
+	<!-- Title -->
+			<%= @project.title %><br>
+			<%= @project.description %><br>
+	<!-- End title -->
+
+	<!-- Boards -->
+		<h3>Boards</h3>
+		<% if !@project.boards.empty? %>
+				<% @project.boards.each do |board| %>
+					<%= link_to "#{board.title}", board_path(board) %><br>
+					# of images - <%= board.images.count %><br>
+				<% end %>
+			<% else %>
+				<%= "This project does not currently have any associated boards." %>
+		<% end %>
+		<br>
+		<br>
+		<%= link_to "Add a board to this project", new_board_path %>
+		<!-- End Boards -->
+		<!-- Comments -->
+		<% if @project.comments %>
+				Comments For This Project:
+				<% @project.comments.each do |comment| %>
+					<p><%= "#{comment.content}" %></p>
+				<% end %>
+			<% end %>
+
+			<%= form_tag '/comments', method: 'post' do %>
+			<%= hidden_field_tag 'comment[project_id]', @project.id %>
+			<%= text_area_tag 'comment[content]' %>
+			<%= submit_tag "Add a comment" %>
+		<% end %>
+	<!-- End Coments -->
+
+	<!-- Contributors -->
+		Users: <% @project.users.each do |user| %>
+			<%= link_to "#{user.full_name}", user_path(user) %>
+			<% end %>
+			<br>
+	<!-- End Contributors -->
+
+	</div>
+</div>

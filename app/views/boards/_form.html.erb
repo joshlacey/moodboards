@@ -1,10 +1,16 @@
-<%= form_for @board do |f| %>
-	<%= f.label :title, "Board Title" %>
-	<%= f.text_field :title %><br><br>
+<div class="ui container fix">
+	<%= form_for @board, {class: "ui form"} do |f| %>
+		<div class="form_container" style="width: 600px;">
+			<div class="field field_container" style="width: 500px;">
+				<%= f.label :title, "Board Title", class: "label_styling" %>
+				<%= f.text_field :title, class: "field_styling" %><br><br>
+			</div>
 
-	<%= f.label :project_id, "Associated Project" %>
-	<%= f.collection_select :project_id, Project.all, :id, :title %><br><br>
-
-	<%= f.submit %>
-
-<% end %>
+			<div class="field field_container" style="width: 500px;">
+				<%= f.label :project_id, "Associated Project", class: "label_styling" %>
+				<%= f.collection_select :project_id, Project.all, :id, :title, {}, {style: "float: right; border-radius: 0; -webkit-appearance: none; padding: 4px;"}%><br><br>
+			</div>
+				<%= f.submit :class => "ui button"%>
+		</div>
+	<% end %>
+</div>
