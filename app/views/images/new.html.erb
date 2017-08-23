@@ -1,14 +1,19 @@
-<%= form_for @image do |f| %>
-
-	<%= f.label :title, "Title of image" %>
-	<%= f.text_field :title %><br><br>
-
-	<%= f.label :url, "File name" %>
-	<%= f.text_field :url %><br><br>
+<div class="ui container fix">
+<%= form_for @image, {class: "ui form"} do |f| %>
+	<div class="field">
+		<%= f.label :title, "Title of image" %>
+		<%= f.text_field :title %><br><br>
+	</div>
+	<div class="field">
+		<%= f.label :url, "File name" %>
+		<%= f.text_field :url %><br><br>
+	</div>
 
 	<%= f.hidden_field :board_id, value: session[:board_id] %>
 	<%= f.hidden_field :user_id, value: session[:user_id] %>
 
-	<%= f.submit %>
+	<%= f.submit :class => "ui button" %>
 
 <% end %>
+
+</div>

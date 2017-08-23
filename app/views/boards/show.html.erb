@@ -11,7 +11,7 @@
 <div class="ui container fix">
 
 	<div style="padding-top: 20px;">
-		<%= link_to "#{@board.project.title}", project_path(@board.project), style: "color: white; font-size: 3em; margin-left:20%;" %><br>
+		<%= link_to "#{@board.project.title}", project_path(@board.project), style: "color: #808080; font-size: 3em; margin-left:20%;" %><br>
 	</div>
 
 		<div class="masonry" style="margin-top: 30px;">
@@ -51,7 +51,7 @@
 
 </div>
 <div class="footer">
-Contributors <% @board.project.users.each do |user| %>
+<span style="color: white; font-weight: bold;">Contributors</span> <% @board.project.users.each do |user| %>
 						<span style="padding-left: 20px;"><%= link_to "#{user.full_name}", user_path(user) %></span>
 					<% end %>
 				</div>
