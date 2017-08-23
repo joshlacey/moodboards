@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
 			elsif @comment.board_id
 				redirect_to board_path(@comment.board)
 			elsif @comment.project_id		
-				redirect_to project_path(@project)
+				redirect_to project_path(@comment.project)
 			end
 		else
 			#CHANGE LATER
