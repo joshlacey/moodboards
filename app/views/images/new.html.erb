@@ -1,19 +1,21 @@
 <div class="ui container fix">
 <%= form_for @image, {class: "ui form"} do |f| %>
-	<div class="field">
-		<%= f.label :title, "Title of image" %>
-		<%= f.text_field :title %><br><br>
+	<div class="form_container">
+		<div class="field field_container">
+			<%= f.label :title, "Title of image", class: "label_styling" %>
+			<%= f.text_field :title, class: "field_styling"%><br><br>
+		</div>
+		<div class="field field_container">
+			&nbsp; &nbsp; &nbsp;
+			<%= f.label :url, "File name", class: "label_styling" %>
+			<%= f.text_field :url, class: "field_styling"%><br><br>
+		</div>
+
+		<%= f.hidden_field :board_id, value: session[:board_id] %>
+		<%= f.hidden_field :user_id, value: session[:user_id] %>
+
+		<%= f.submit :class => "ui button"%>
 	</div>
-	<div class="field">
-		<%= f.label :url, "File name" %>
-		<%= f.text_field :url %><br><br>
-	</div>
-
-	<%= f.hidden_field :board_id, value: session[:board_id] %>
-	<%= f.hidden_field :user_id, value: session[:user_id] %>
-
-	<%= f.submit :class => "ui button" %>
-
 <% end %>
 
 </div>
