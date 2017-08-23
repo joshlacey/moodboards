@@ -11,9 +11,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-// .container {
-//   background-color: #dfdcdc;
-// }
+
 //***Navigation***//
 
 .floating_box{
@@ -24,7 +22,7 @@ body {
 
 .button_link {
   margin-bottom: 20px;
-  background-color: #808080;
+  background-color: black;
   padding: 10px;
   border-radius: 0px 20px 20px 0px;
 
@@ -48,13 +46,17 @@ hr.line {
  }
 
 span.title {
-  color: white;
+  color: #808080;
   font-weight: bold;
 }
 
 div.ui.menu {
   font-family: 'Source Sans Pro', sans-serif;
 }
+
+// div.ui.inverted.menu {
+//   background: #808080;
+// }
 
 
 //***Login Page***//
@@ -95,5 +97,5 @@ form#login div {
   padding-bottom: 40px;
   padding-left: 10px;
   bottom: 0px;
-  background-color: #808080;
+  background-color: black;
 }
