@@ -12,11 +12,18 @@
   	<!-- start navbar -->
   	<div class="ui inverted menu fixed">
 		  <%= link_to "Home", root_path, class: "active item" %>
+		  <% if logged_in? %>
+		  	<%= link_to "Create a New Project", new_project_path, class: "ui item" %>
+		  	<%= link_to "Edit Profile", edit_user_path(current_user), class: "ui item" %>
+		  	<% if current_user.admin? %>
+		  		<%= link_to "See All Users", users_path, class: "ui item" %>
+		  	<% end %>
+		  <% end %>
 		  <div class="right menu">
 		    <% if !logged_in? %>
-		    <%= link_to "Sign Up", new_user_path, class: "ui item" %>
+		    	<%= link_to "Sign Up", new_user_path, class: "ui item" %>
 		    <% else %>
-		    <%= link_to "Log Out", logout_path, method: 'delete', class: "ui item" %><br><br>
+		    	<%= link_to "Log Out", logout_path, method: 'delete', class: "ui item" %><br><br>
 		    <% end %>
 		  </div>
 		</div>

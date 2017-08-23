@@ -1,0 +1,60 @@
+
+.user-info-box {
+	width: 30%;
+	border-right: 1px solid;
+}
+
+.title-name {
+	font-size: 4vw;
+	text-align: right;
+	margin-right: 10%;
+}
+
+.padded-container {
+	padding-top: 100px;
+	padding-left: 20px;
+}
+
+div.projects a {
+	font-size: 2.5vw;
+	margin-left: 20%;
+	color: black;
+}
+
+div.projects a:hover {
+	color: grey;
+}
+
+h2#project-title {
+	text-decoration: underline grey;
+	margin-left: 30%;
+	margin-top: 1%;
+}
+
+.shift-right {
+	margin-left: 30%;
+	clear: both;
+	margin-bottom: 1%;
+}
+
+.user-email {
+	padding-top: 8px;
+	text-align: right;
+	padding-right: 10%;
+	font-size: 1vw;
+	font-style: italic;
+}
+
+.projects {
+	margin-left: 30%;
+	margin-top: 1%;
+}
+
+.grid {
+	max-height: 300px;
+}
+
+.thumbnail-image {
+	float: left;
+	padding-left: 5px;
+}

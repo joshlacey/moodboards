@@ -1,20 +1,30 @@
-<div class="container">
-	<%= @user.full_name %><br><br>
-	<%= @user.email %><br><br>
+<div class="container padded-container">
+	
+	<div class="user-info-box">
+		<div class="title-name">
+			<%= @user.full_name %><br><br>
+		</div>
+		<div class="user-email">
+		<%= @user.email %><br><br>
+		</div>
+	</div>	
 
-	<%= link_to "Log Out", logout_path, method: 'delete' %><br><br>
+	<div class="projects ui grid">
+		<h2 id="project-title">Projects</h2>
+			<div class="four wide column"></div>
+		<% if @projects %>
+			<% @projects.each do |project| %>
+				<div class="ten wide column shift-right">
+					<%= link_to "#{project.title}", project_path(project) %><br><br>
+					<hr>
+					<% project.images.each do |image| %>
+						<%= image_tag image.url, class: "ui small image thumbnail-image" %>
+						<% end %>
+				</div>
+			<% end %>
+		<% else %>
+			<%= "#{@user.first_name} doesn't currently have any projects." %>
+		<% end %>
+	</div>
 
-	Projects: 
-	<% if @projects %>
-		<% @projects.each do |project| %>
-			<%= link_to "#{project.title}", project_path(project) %><br>
-		<% end %><br><br>
-	<% else %>
-		<%= "#{@user.first_name} doesn't currently have any projects." %>
-	<% end %>
-
-	<%= link_to "Create a New Project", new_project_path %><br><br>
-
-	<%= link_to "Edit #{@user.first_name}", edit_user_path(@user) %><br><br>
-	<%= link_to "To All Users", users_path %>
 </div>

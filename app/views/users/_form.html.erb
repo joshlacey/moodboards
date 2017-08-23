@@ -1,3 +1,4 @@
+<div class="new-user">
 <%= form_for @user do |f| %>
 
 	<%= f.label :first_name %><br>
@@ -15,6 +16,7 @@
 	<%= f.label :password_confirmation %><br>
 	<%= f.password_field :password_confirmation %><br><br>
 
-	<%= f.submit %>
+	<%= f.submit :class => "ui button" %>
 
 <% end %>
+</div>
