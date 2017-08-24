@@ -1,10 +1,10 @@
 <div class="ui container fix">
 
-<div style="margin-left: 40%;">
+<div style="margin-top: 20%;">
  	<% @users.each do |user| %>
 			<% if user != current_user %>
-			<h2> <%= link_to "#{user.full_name}", user_path(user), :style => "color: black;"  %>
-			</h2>
+			<h1 style="text-align: center;"> <%= link_to "#{user.full_name}", user_path(user), :class => "black"  %>
+			</h1>
 			<% end %>
 
 	<% end %>

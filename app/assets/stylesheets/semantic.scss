@@ -34,11 +34,19 @@ body {
 //***Links***//
 
 a {
-  color: white;
+  color: grey;
+}
+
+a.black {
+ color: black; 
+}
+
+a.black:hover {
+  color: grey;
 }
 
 a:hover {
-  color: black;
+  color: grey;
 }
 
 
