@@ -1,16 +1,16 @@
 
 <div class="floating_box">
 	<div class="button_link">
-		<%= link_to "Back to Project", project_path(@board.project) %>
+		<%= link_to "Back to #{@board.project.title} Project", project_path(@board.project) %>
 	</div>
 	<div class="button_link">
-		<%= link_to "Add Image", new_image_path %>
+		<%= link_to "Add An Image To This Board", new_image_path %>
 	</div>
 	<div class="button_link">
-		<%= link_to "Edit", edit_board_path(@board) %><br>
+		<%= link_to "Edit This Board", edit_board_path(@board) %><br>
 	</div>
 	<div class="button_link">
-		<%= link_to "Delete Board", board_path(@board), method: :delete, data: {confirm: 'Are you sure you want to delete this board?'} %>
+		<%= link_to "Delete This Board", board_path(@board), method: :delete, data: {confirm: 'Are you sure you want to delete this board?'} %>
 		</div>
 </div>
 
@@ -19,6 +19,8 @@
 	<div class="board-show-title">
 		<%= @board.title  %><br>
 	</div>
+
+	<% if @board.images.count == 0 %><div class="ui container" style="background-color: black; height: 400px; padding: 30%; text-align: center;"><h1>You currently have no images for this board</h1></div><% end %>
 
 		<div class="masonry" style="margin-top: 30px;">
 

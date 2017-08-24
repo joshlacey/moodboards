@@ -1,20 +1,20 @@
 <div class="ui container fix">
-	<div class="form new-user">
+	<div class="new-project project-desc">
 		<%= form_for @user do |f| %>
 
-			<%= f.label :first_name %><br>
+			<%= f.label :first_name %><br><br>
 			<%= f.text_field :first_name %><br><br>
 
-			<%= f.label :last_name %><br>
+			<%= f.label :last_name %><br><br>
 			<%= f.text_field :last_name %><br><br>
 
-			<%= f.label :email %><br>
+			<%= f.label :email %><br><br>
 			<%= f.text_field :email %><br><br>
 
-			<%= f.label :password %><br>
+			<%= f.label :password %><br><br>
 			<%= f.password_field :password %><br><br>
 
-			<%= f.label :password_confirmation %><br>
+			<%= f.label :password_confirmation %><br><br>
 			<%= f.password_field :password_confirmation %><br><br>
 
 			<%= f.submit :class => "ui button" %>

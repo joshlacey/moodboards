@@ -1,6 +1,10 @@
 <div class="floating_box">
 		<div class="button_link">
-			<%= link_to "Back to Board", board_path(@image.board) %>
+			<%= link_to "Back to #{@image.board.title} Board", board_path(@image.board) %>
+		</div>
+		
+		<div class="button_link">
+			<%= link_to "Back to #{@image.board.project.title} Project", project_path(@image.board.project) %>
 		</div>
 
 		<div class="button_link">

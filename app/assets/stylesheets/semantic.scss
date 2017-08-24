@@ -43,7 +43,7 @@ body {
 
 .button_approve_reject {
   margin-bottom: 20px;
-  border: 1px solid white;
+  border: 1px solid black;
   color: white;
   padding: 10px;
   text-decoration:
@@ -69,8 +69,17 @@ a.black:hover {
   color: grey;
 }
 
+.button_approve_reject:hover {
+  border: 1px solid white;
+}
 
+.green {
+  border-left-color: green;
+}
 
+.red {
+  border-left-color: red;
+}
 
 //***Main content***//
 
@@ -196,4 +205,17 @@ form#login div {
   padding-left: 10px;
   bottom: 0px;
   background-color: black;
+}
+
+//***Animcations***//
+@keyframes main-flash {
+    from {color: white;}
+    to {color: black;}
+}
+
+.flashing {
+  animation-name: main-flash;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
