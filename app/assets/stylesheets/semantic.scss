@@ -78,6 +78,35 @@ span.title {
 
 div.ui.menu {
   font-family: 'Source Sans Pro', sans-serif;
+  border-radius: 0;
+  min-height: inherit;
+  width: 150px;
+  background: #000;
+  border: 1px solid white;
+  border-left-color: black;
+  color: white;
+}
+
+div.ui.simple.dropdown.item {
+  font-family: 'Source Sans Pro', sans-serif;
+  border-radius: 0;
+  min-height: inherit;
+  width: 150px;
+  background: #000;
+  border: 1px solid white;
+  border-left-color: black;
+  color: white;
+}
+
+div.ui.simple.dropdown.item:hover {
+  font-family: 'Source Sans Pro', sans-serif;
+  border-radius: 0;
+  min-height: inherit;
+  width: 150px;
+  background: #000;
+  border: 1px solid white;
+  border-left-color: black;
+  color: white;
 }
 
 //***Forms***//
@@ -146,8 +175,8 @@ form#login div {
 
 .comment_display {
   overflow-y: scroll;
-  border: 1px solid #808080;
   color: white;
+  overflow-wrap: break-word;
 }
 
 //***footer***//

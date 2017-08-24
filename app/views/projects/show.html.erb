@@ -4,34 +4,31 @@
 		<%= link_to "Edit this project", edit_project_path(@project) %>
 	</div>
 
-<!-- Boards Dropdown Begin -->
 
-	<div class="ui compact menu">
-	  <div class="ui simple dropdown item">
-	    <h2>Boards</h2>
-	    	<i class="dropdown icon"></i>
-	    		<div class="menu">
-	     			<% @project.boards.each do |board| %>
-	      			<div class="button_link"><%= link_to "#{board.title}", board_path(board) %></div>
-	      		<% end %>
-	      		<div class="button_link">
-							<%= link_to "Add New Board", new_board_path %>
-						</div>
-	    		</div>
-	  </div>
-	</div>
-<!-- Boards Dropdown End -->
 
-<!-- Admin APPROVE and REJECT Buttons Begin -->
-	<% if current_user.admin? %>
-		<%= form_tag approve_project_path do %>
-			<%= hidden_field_tag 'project_id', @project.id %>
-			<%= submit_tag "Approve Project", class: "button_approve_reject", style: "background-color: green;", data: {confirm: "Are you sure you want to approve this project?"} %> <% end %>
-		<%= form_tag reject_project_path do %>
-			<%= hidden_field_tag 'project_id', @project.id %>
-			<%= submit_tag "Reject Project", :class => "button_approve_reject", style: "background-color: red;", data: {confirm: "Are you sure you want to reject this project?"}%><% end %>
-	<% end %>
-<!-- Admin APPROVE and REJECT Buttons End -->
+			<% if current_user.admin? %>
+				<%= form_tag approve_project_path do %>
+					<%= hidden_field_tag 'project_id', @project.id %>
+					<%= submit_tag "Approve Project", class: "button_approve_reject", style: "background-color: green;", data: {confirm: "Are you sure you want to approve this project?"} %> <% end %>
+				<%= form_tag reject_project_path do %>
+					<%= hidden_field_tag 'project_id', @project.id %>
+					<%= submit_tag "Reject Project", :class => "button_approve_reject", style: "background-color: red;", data: {confirm: "Are you sure you want to reject this project?"}%><% end %>
+			<% end %>
+
+
+			<div class="ui compact menu">
+			  <div class="ui simple dropdown item">
+			    Boards &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="dropdown icon"></i>
+			    		<div class="menu" style="background-color:black;">
+			     			<% @project.boards.each do |board| %>
+			      			<div class="button_link" style="margin-bottom: 0px;"><%= link_to "#{board.title}", board_path(board) %></div>
+			      		<% end %>
+			      		<div class="button_link" style="background-color: #808080;">
+									<%= link_to "Add New Board", new_board_path %>
+								</div>
+			    		</div>
+			  </div>
+		</div>
 </div>
 
 <!-- BEGIN CONTAINER -->
@@ -54,28 +51,29 @@
 		<% end %>
 	</div>
 
+
 	<br><br>
-	<div class="ui two column grid">
-		<div class="column" style="height: 200px;">
-			<%= form_tag '/comments', method: 'post' do %>
-				<div class="ui form">
-					<div class="field">
-						<%= hidden_field_tag 'comment[project_id]', @project.id %>
-						<%= text_area_tag 'comment[content]' %>
-					</div>
-				</div>
-			<%= submit_tag "Add a comment" %>
-			<% end %>
-		</div>
-		<div class="column" style="height: 200px;">
-			<span class="title"> Comments For This Project </span>
-			<div style="overflow-y:scroll; height: 150px;">
-				<% if @project.comments %>
-					<% @project.comments.each do |comment| %>
-						<p><%= "#{comment.user.full_name}: #{comment.content}" %></p>
-						<hr class="line">
+			<div class="ui two column grid">
+				<div class="column" style="height: 200px;">
+					<%= form_tag '/comments', method: 'post' do %>
+						<div class="ui form">
+							<div class="field">
+								<%= hidden_field_tag 'comment[project_id]', @project.id %>
+								<%= text_area_tag 'comment[content]' %>
+							</div>
+						</div>
+					<%= submit_tag "Add a comment", class: "ui button", style: "margin-left: 35%; margin-top: 20px;" %>
 					<% end %>
-				<% end %>
+				</div>
+				<div class="column" style="height: 200px;">
+					<div class="comment_display" style="overflow-y:scroll; height: 150px;">
+						<% if @project.comments %>
+							<% @project.comments.each do |comment| %>
+								<p><%= "#{comment.user.full_name}: #{comment.content}" %></p><br>
+							<% end %>
+						<% end %>
+					</div>
+			</div>
 			</div>
 	</div>
 	</div>
