@@ -21,13 +21,13 @@
 <span style="float: left;">
 	<%= form_tag approve_project_path do %>
 		<%= hidden_field_tag 'project_id', @project.id %>
-		<%= submit_tag "Approve Project", :class => "ui button green" %>
+		<%= submit_tag "Approve Project", :onclick => "return confirm('Are you sure you want to approve this project?')", :class => "ui button green" %>
 		<% end %>
 		</span>
 <span style="float: left; clear: right;">
 	<%= form_tag reject_project_path do %>
 		<%= hidden_field_tag 'project_id', @project.id %>
-		<%= submit_tag "Reject Project", :class => "ui button red" %>
+		<%= submit_tag "Reject Project", :onclick => "return confirm('Are you sure you want to reject this project?')", :class => "ui button red" %>
 		<% end %>
 		</span>
 	<% end %>
