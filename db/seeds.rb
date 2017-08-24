@@ -60,7 +60,7 @@ some_images = images.each {|img| Image.create(img)}
 comments = [{content: "nice image!", user_id: User.find_by(first_name: "James").id, project_id: Project.find_by(title: "Meditations on Vague Obscurity").id, image_id: Image.find_by(url: "tilda/pl_designarchitecture1_f2.jpg")},
 {content: "Love love love the concrete", user_id: User.find_by(first_name: "Steven").id, project_id: Project.find_by(title: "Meditations on Vague Obscurity").id, board_id: Board.find_by(title: "Direction").id},
 {content: "We should focus on concrete. Concrete is the essence of Rock", user_id: User.find_by(first_name: "Steven").id, project_id: Project.find_by(title: "Meditations on Vague Obscurity").id },
-{content: "lets photoshop a pic of her sleeping on this", user_id: User.find_by(first_name: "James").id, project_id: Board.find_by(title: "Direction").id, image_id: Image.find_by(url: "tilda/modernist-doll-houses-wolfgang-sirch-christoph-bitzer-design-childs-dream-t.jpeg").id }
+#{content: "lets photoshop a pic of her sleeping on this", user_id: User.find_by(first_name: "James").id, project_id: Board.find_by(title: "Direction").id, image_id: Image.find_by(url: "tilda/modernist-doll-houses-wolfgang-sirch-christoph-bitzer-design-childs-dream-t.jpeg").id }
 ]
 
 some_comments = comments.each {|comment| Comment.create(comment)}

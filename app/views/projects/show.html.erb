@@ -42,7 +42,7 @@
 		<%= @project.description %>
 		<br>
 	</div>
-
+	<% if @project.images.count == 0 %><div class="ui container" style="background-color: #808080; height: 400px; padding: 30%;"><h2>You currently have no projects</h1></div><% end %>
 	<div class="masonry" style="margin-top: 30px;">
 		<% @project.images.each do |image| %>
 			<div class="item_brick">
@@ -51,7 +51,7 @@
 		<% end %>
 	</div>
 
-
+	<% if @project.images.count != 0 %>
 	<br><br>
 			<div class="ui two column grid">
 				<div class="column" style="height: 200px;">
@@ -77,6 +77,8 @@
 			</div>
 	</div>
 	</div>
+<% end %>
+
 
 </div>
 <!-- END CONTAINER -->
