@@ -4,37 +4,8 @@
 		<%= link_to "Edit this project", edit_project_path(@project) %>
 	</div>
 
-	<div class="ui compact menu">
-	  <div class="ui simple dropdown item">
-	    <h2>Boards</h2>
-	    	<i class="dropdown icon"></i>
-	    		<div class="menu">
-	     			<% @project.boards.each do |board| %>
-	      			<div class="button_link"><%= link_to "#{board.title}", board_path(board) %></div>
-	      		<% end %>
-	      		<div class="button_link">
-							<%= link_to "Add New Board", new_board_path %>
-						</div>
-	    		</div>
-	  </div>
-</div>
 
-<!-- 	<h2>Boards</h2>
-		<% @project.boards.each do |board| %>
-			<div class="button_link">
-				<%= link_to "#{board.title}", board_path(board) %>
-			</div>
-		<% end %>
-			<div class="button_link">
-				<%= link_to "Add New Board", new_board_path %>
-			</div>
-			<div class="button_link">
-				<%= link_to "Edit this project", edit_project_path(@project) %>
-			</div>
 
-			<!-- <div class="button_link" style="background-color: green;">
-				<%= link_to "Approve Project", approve_project_path, :project_id => @project.id %>
-			</div> -->
 			<% if current_user.admin? %>
 				<%= form_tag approve_project_path do %>
 					<%= hidden_field_tag 'project_id', @project.id %>
@@ -43,6 +14,21 @@
 					<%= hidden_field_tag 'project_id', @project.id %>
 					<%= submit_tag "Reject Project", :class => "button_approve_reject", style: "background-color: red;"%><% end %>
 			<% end %>
+
+
+			<div class="ui compact menu">
+			  <div class="ui simple dropdown item">
+			    Boards &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="dropdown icon"></i>
+			    		<div class="menu" style="background-color:black;">
+			     			<% @project.boards.each do |board| %>
+			      			<div class="button_link" style="margin-bottom: 0px;"><%= link_to "#{board.title}", board_path(board) %></div>
+			      		<% end %>
+			      		<div class="button_link" style="background-color: #808080;">
+									<%= link_to "Add New Board", new_board_path %>
+								</div>
+			    		</div>
+			  </div>
+		</div>
 </div>
 
 
@@ -79,12 +65,11 @@
 								<%= text_area_tag 'comment[content]' %>
 							</div>
 						</div>
-					<%= submit_tag "Add a comment" %>
+					<%= submit_tag "Add a comment", class: "ui button", style: "margin-left: 35%; margin-top: 20px;" %>
 					<% end %>
 				</div>
 				<div class="column" style="height: 200px;">
-					<span class="title"> Comments For This Project </span>
-					<div style="overflow-y:scroll; height: 150px;">
+					<div class="comment_display" style="overflow-y:scroll; height: 150px;">
 						<% if @project.comments %>
 							<% @project.comments.each do |comment| %>
 								<p><%= "#{comment.user.full_name}: #{comment.content}" %></p>

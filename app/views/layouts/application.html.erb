@@ -21,16 +21,16 @@
 		  	<% end %>
 		  	<% if @project %>
 		  		<% if @project.status == "pending" %>
-						<span class="ui horizontal yellow label">
-							<%= @project.status %>
+						<span class="ui horizontal label" style="border-radius: 0 15px 15px 0; background-color: yellow; color: white; font-size: 1em; padding-top: 12px; padding-left: 35px; padding-right: 35px;">
+							Project &nbsp;&nbsp;&nbsp;<%= @project.status.capitalize %>
 						</span>
 						<% elsif @project.status == "approved" %>
-							<span class="ui horizontal green label">
-								<%= @project.status %>
+							<span class="ui horizontal label" style="border-radius: 0 15px 15px 0; background-color: green; color: white; font-size: 1em; padding-top: 12px; padding-left: 35px; padding-right: 35px;">
+								Project &nbsp;&nbsp;&nbsp;<%= @project.status.capitalize %>
 							</span>
 						<% elsif @project.status == "rejected" %>
-							<span class="ui horizontal red label">
-								<%= @project.status %>
+							<span class="ui horizontal label" style="border-radius: 0 15px 15px 0; background-color: red; color: white; font-size: 1em; padding-top: 12px; padding-left: 35px; padding-right: 35px;">
+								Project &nbsp;&nbsp;&nbsp;<%= @project.status.capitalize %>
 							</span>
 					<% end %>
 		  	<% end %>
