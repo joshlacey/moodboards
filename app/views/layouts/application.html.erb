@@ -13,7 +13,6 @@
   	<div class="ui inverted large menu fixed">
 		  <%= link_to "Home", root_path, class: "active item" %>
 		  <% if logged_in? %>
-		  	<div class="ui item"><%= "Hi, #{current_user.first_name}!" %></div>
 		  	<%= link_to "Create a New Project", new_project_path, class: "ui item" %>
 		  	<%= link_to "Edit Profile", edit_user_path(current_user), class: "ui item" %>
 		  	<% if current_user.admin? %>
@@ -22,7 +21,7 @@
 		  	<% end %>
 		  	<% if @project %>
 		  		<% if @project.status == "pending" %>
-						<span class="ui horizontal label" style="border-radius: 0 15px 15px 0; background-color: yellow; color: white; font-size: 1em; padding-top: 12px; padding-left: 35px; padding-right: 35px;">
+						<span class="ui horizontal label" style="border-radius: 0 15px 15px 0; background-color: #cc9900; color: white; font-size: 1em; padding-top: 12px; padding-left: 35px; padding-right: 35px;">
 							Project &nbsp;&nbsp;&nbsp;<%= @project.status.capitalize %>
 						</span>
 						<% elsif @project.status == "approved" %>
@@ -36,10 +35,13 @@
 					<% end %>
 		  	<% end %>
 		  <% end %>
+
 		  <div class="right menu">
 		    <% if !logged_in? && !current_page?(new_user_path) %>
 		    	<%= link_to "Sign Up", new_user_path, class: "ui item" %>
 		    <% elsif logged_in? %>
+          <% if current_user.admin?%><div class="ui item">(Admin)</div><%end%>
+          <%= link_to "Hi, #{current_user.first_name}", user_path(current_user), class: "ui item" %><br><br>
 		    	<%= link_to "Log Out", logout_path, method: 'delete', class: "ui item" %><br><br>
 		    <% end %>
 		  </div>
