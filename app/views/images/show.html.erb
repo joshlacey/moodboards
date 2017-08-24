@@ -36,11 +36,10 @@
 				</div>
 				<%= submit_tag "Add a comment", class: "ui button", style: "margin-top: 20px; margin-left: 35%" %>
 			<% end %>
-			<div class="comment_display" style="margin-top: 20px; height: 350px;">
+			<div class="comment_display" style="margin-top: 20px; height: 350px; border: none;">
 				<% if @image.comments %>
 					<% @image.comments.each do |comment| %>
 						<p><%= "#{comment.user.full_name}: #{comment.content}" %></p>
-						<hr class="line">
 					<% end %>
 				<% end %>
 			</div>
