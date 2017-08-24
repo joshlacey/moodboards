@@ -1,27 +1,27 @@
 <div class="floating_box">
-	
+
 	<h2>Boards</h2>
-	<% @project.boards.each do |board| %>
-		<div class="button_link">
-		<%= link_to "#{board.title}", board_path(board) %>
-		</div>
-	<% end %>
-	<div class="button_link">
-		<%= link_to "Add New Board", new_board_path %>
-	</div>
-	<div class="button_link">
-		<%= link_to "Edit this project", edit_project_path(@project) %>
-	</div>
-	<% if current_user.admin? %>
-		<div class="button_link">
-			<%= link_to "All Projects", projects_path %>
-		</div>
+		<% @project.boards.each do |board| %>
+			<div class="button_link">
+				<%= link_to "#{board.title}", board_path(board) %>
+			</div>
+		<% end %>
+			<div class="button_link">
+				<%= link_to "Add New Board", new_board_path %>
+			</div>
+			<div class="button_link">
+				<%= link_to "Edit this project", edit_project_path(@project) %>
+			</div>
+		<% if current_user.admin? %>
+			<div class="button_link">
+				<%= link_to "All Projects", projects_path %>
+			</div>
 		<% end %>
 </div>
 
 
 <div class="ui container fix">
-	
+
 <% if current_user.admin? %>
 <span style="float: left;">
 	<%= form_tag approve_project_path do %>
@@ -49,7 +49,13 @@
 		<div class="masonry" style="margin-top: 30px;">
 			<% @project.images.each do |image| %>
 				<div class="item_brick">
-				<%= link_to image_tag(image.url), image_path(image), class: "ui fluid image" %>
+
+										<% if image.url? %>
+											<%= link_to image_tag(image.url), image_path(image), class: "ui fluid image" %>
+										<% elsif image.photo? %>
+											<%= link_to image_tag(image.photo), image_path(image), class: "ui fluid image" %>
+										<% end %>
+					
 				</div>
 			<% end %>
 		</div>

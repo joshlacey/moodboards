@@ -1,15 +1,17 @@
 <div class="ui container fix">
 <%= form_for @image, {class: "ui form"} do |f| %>
-	<div class="form_container">
+	<div class="form_container" style="padding-top: 100px;">
 		<div class="field field_container">
 			<%= f.label :title, "Title of image", class: "label_styling" %>
 			<%= f.text_field :title, class: "field_styling"%><br><br>
 		</div>
 		<div class="field field_container">
 			&nbsp; &nbsp; &nbsp;
-			<%= f.label :url, "File name", class: "label_styling" %>
+			<%= f.label :url, "Enter Url", class: "label_styling" %>
 			<%= f.text_field :url, class: "field_styling"%><br><br>
 		</div>
+		<span style="color: white; text-align: center; margin-left: 30%;">-------- OR --------</span>
+		<%= f.file_field :photo, style: "color: white; margin-left: 17%; margin-top: 20px;" %>
 
 		<%= f.hidden_field :board_id, value: session[:board_id] %>
 		<%= f.hidden_field :user_id, value: session[:user_id] %>
@@ -17,5 +19,7 @@
 		<%= f.submit :class => "ui button"%>
 	</div>
 <% end %>
-
+	<% if flash[:invalid_url] != nil && flash[:invalid_url] != "" %>
+	<span> <%= flash[:invalid_url] %> </span>
+	<% end %>
 </div>

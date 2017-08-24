@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
 	before_action :require_login
-	
+
 	def index
 		#probably admin only
 		@images = Image.all
@@ -17,8 +17,10 @@ class ImagesController < ApplicationController
 	def create
 		@image = Image.new(image_params)
 		if @image.save
+			flash[:invalid_url] = ""
 			redirect_to image_path(@image)
 		else
+			flash[:invalid_url] = "The url or file you have selected is invalid."
 			render :new
 		end
 	end
@@ -45,7 +47,7 @@ class ImagesController < ApplicationController
 	private
 
 	def image_params
-		params.require(:image).permit(:title, :board_id, :url, :user_id)
+		params.require(:image).permit(:title, :board_id, :url, :user_id, :photo)
 	end
 
 end
