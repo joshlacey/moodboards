@@ -1,6 +1,25 @@
 <div class="floating_box">
+			
+	<div class="button_link">
+		<%= link_to "Edit this project", edit_project_path(@project) %>
+	</div>
 
-	<h2>Boards</h2>
+	<div class="ui compact menu">
+	  <div class="ui simple dropdown item">
+	    <h2>Boards</h2>
+	    	<i class="dropdown icon"></i>
+	    		<div class="menu">
+	     			<% @project.boards.each do |board| %>
+	      			<div class="button_link"><%= link_to "#{board.title}", board_path(board) %></div>
+	      		<% end %>
+	      		<div class="button_link">
+							<%= link_to "Add New Board", new_board_path %>
+						</div>
+	    		</div>
+	  </div>
+</div>
+
+<!-- 	<h2>Boards</h2>
 		<% @project.boards.each do |board| %>
 			<div class="button_link">
 				<%= link_to "#{board.title}", board_path(board) %>
@@ -11,7 +30,7 @@
 			</div>
 			<div class="button_link">
 				<%= link_to "Edit this project", edit_project_path(@project) %>
-			</div>
+			</div> -->
 </div>
 
 
@@ -21,13 +40,13 @@
 <span style="float: left;">
 	<%= form_tag approve_project_path do %>
 		<%= hidden_field_tag 'project_id', @project.id %>
-		<%= submit_tag "Approve Project", :onclick => "return confirm('Are you sure you want to approve this project?')", :class => "ui button green" %>
+		<%= submit_tag "Approve Project", data: {confirm: 'Are you sure you want to approve this project?'}, :class => "ui button green" %>
 		<% end %>
 		</span>
 <span style="float: left; clear: right;">
 	<%= form_tag reject_project_path do %>
 		<%= hidden_field_tag 'project_id', @project.id %>
-		<%= submit_tag "Reject Project", :onclick => "return confirm('Are you sure you want to reject this project?')", :class => "ui button red" %>
+		<%= submit_tag "Reject Project", data: {confirm: 'Are you sure you want to reject this project?'}, :class => "ui button red" %>
 		<% end %>
 		</span>
 	<% end %>
