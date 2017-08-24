@@ -19,6 +19,9 @@
 		<% end %>
 </div>
 
+
+<div class="ui container fix">
+	
 <% if current_user.admin? %>
 <span style="float: left;">
 	<%= form_tag approve_project_path do %>
@@ -32,20 +35,18 @@
 		<%= submit_tag "Reject Project", :class => "ui button red" %>
 		<% end %>
 		</span>
-<% end %>
+	<% end %>
 
-
-<div class="ui container fix">
-		<div class="project-name-show">
-		<%= @project.title %> 
+	<div class="project-name-show">
+			<%= @project.title %>
 	</div>
 		<br>
 	<div class="project-descrip-show">
-		<%= @project.description %><br>
+		<%= @project.description %>
+		<br>
 	</div>
 
 		<div class="masonry" style="margin-top: 30px;">
-
 			<% @project.images.each do |image| %>
 				<div class="item_brick">
 				<%= link_to image_tag(image.url), image_path(image), class: "ui fluid image" %>

@@ -10,7 +10,7 @@
 
   <body>
   	<!-- start navbar -->
-  	<div class="ui inverted menu fixed">
+  	<div class="ui inverted large menu fixed">
 		  <%= link_to "Home", root_path, class: "active item" %>
 		  <% if logged_in? %>
 		  	<%= link_to "Create a New Project", new_project_path, class: "ui item" %>
@@ -21,18 +21,24 @@
 		  	<% end %>
 		  	<% if @project %>
 		  		<% if @project.status == "pending" %>
-		<span class="ui horizontal yellow label"><%= @project.status %></span>
-		<% elsif @project.status == "approved" %>
-		<span class="ui horizontal green label"><%= @project.status %></span>
-		<% elsif @project.status == "rejected" %>
-		<span class="ui horizontal red label"><%= @project.status %></span>
-		<% end %>
-		  		<% end %>
+						<span class="ui horizontal yellow label">
+							<%= @project.status %>
+						</span>
+						<% elsif @project.status == "approved" %>
+							<span class="ui horizontal green label">
+								<%= @project.status %>
+							</span>
+						<% elsif @project.status == "rejected" %>
+							<span class="ui horizontal red label">
+								<%= @project.status %>
+							</span>
+					<% end %>
+		  	<% end %>
 		  <% end %>
 		  <div class="right menu">
-		    <% if !logged_in? %>
+		    <% if !logged_in? && !current_page?(new_user_path) %>
 		    	<%= link_to "Sign Up", new_user_path, class: "ui item" %>
-		    <% else %>
+		    <% elsif logged_in? %>
 		    	<%= link_to "Log Out", logout_path, method: 'delete', class: "ui item" %><br><br>
 		    <% end %>
 		  </div>

@@ -2,42 +2,63 @@
 	<table class="ui celled black table">
   <thead>
     <tr>
-      <th class="center aligned"><h2>Project</h2></th>
-      <th class="center aligned"><h2>Description</h2></th>
-      <th class="center aligned"><h2># of Boards</h2></th>
-      <th class="center aligned"><h2>Status</h2></th>
+      <th class="center aligned">
+      	<h2>Project</h2>
+      </th>
+      <th class="center aligned">
+      	<h2>Description</h2>
+      </th>
+      <th class="center aligned">
+      	<h2># of Boards</h2>
+      </th>
+      <th class="center aligned">
+      	<h2>Status</h2>
+      </th>
     </tr>
   </thead>
   <tbody>
    <% @projects.each do |project| %> 
     <tr>
       <td class="center aligned">
-      <h2><%= link_to "#{project.title}", project_path(project), :class => "black" %></h2>
+      	<h2>
+      		<%= link_to "#{project.title}", project_path(project), :class => "black" %>
+      	</h2>
       </td>
       <td class="center aligned six wide">
-      <h3><%= project.description %></h3>
+      	<h3>
+      		<%= project.description %>
+      	</h3>
       </td>
       <td class="center aligned">
-      <h3><%= "#{project.boards.count}" %></h3>
+      	<h3>
+      		<%= "#{project.boards.count}" %>
+      	</h3>
       </td>
       <% if project.status == "approved" %>
 	      <td class="center aligned positive">
-	      	<h4><i class="icon checkmark"></i>
-	      		<%= project.status.titleize %>
+	      	<h4>
+	      		<i class="icon checkmark">
+	      		</i>
+	      			<%= project.status.titleize %>
 	      	</h4>
       	</td>
       	<% elsif project.status == "pending" %>
       		<td class="center aligned warning">
-      			<h4><%= project.status.titleize %></h4>
+      			<h4>
+      				<%= project.status.titleize %>
+      			</h4>
       		</td>
       	<% elsif project.status == "rejected" %>
       		<td class="center aligned negative">
-      			<h4><i class="icon close"></i>
-      				<%= project.status.titleize %>
+      			<h4>
+      				<i class="icon close">
+      				</i>
+      					<%= project.status.titleize %>
       			</h4>
       		</td>
       <% end %>
     </tr>
     <% end %>
-    </tbody>
-</table>
+  </tbody>
+	</table>
+</div>

@@ -14,7 +14,7 @@
 			<div class="four wide column"></div>
 		<% if @projects %>
 			<% @projects.each do |project| %>
-				<div class="ten wide column shift-right">
+				<div class="ten wide column shift-right" style="margin-top: 10px;">
 					<%= link_to "#{project.title}", project_path(project) %><br><br>
 					<hr>
 					<% project.images.sample(5).each do |image| %>
