@@ -18,11 +18,7 @@
 					<%= link_to "#{project.title}", project_path(project) %><br><br>
 					<hr>
 					<% project.images.sample(5).each do |image| %>
-					<% if image.url? %>
-						<%= image_tag image.url, class: "ui small image thumbnail-image" %>
-					<% elsif image.photo? %>
-						<%= image_tag image.photo, class: "ui small image thumbnail-image" %>
-					<% end %>
+						<%= image_tag image.file_for, class: "ui small image thumbnail-image" %>
 						<% end %>
 				</div>
 			<% end %>
