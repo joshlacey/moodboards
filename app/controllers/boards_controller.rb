@@ -20,7 +20,7 @@ class BoardsController < ApplicationController
 		if @board.save
 			redirect_to board_path(@board)
 		else
-			render :new
+			redirect_to new_board_path
 		end
 	end
 
