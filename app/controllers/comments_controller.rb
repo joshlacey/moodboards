@@ -20,12 +20,11 @@ class CommentsController < ApplicationController
 				redirect_to image_path(@comment.image)
 			elsif @comment.board_id
 				redirect_to board_path(@comment.board)
-			elsif @comment.project_id		
+			elsif @comment.project_id
 				redirect_to project_path(@comment.project)
 			end
 		else
-			#CHANGE LATER
-			redirect_to root_path
+			redirect_back(fallback_location: root_path)
 		end
 	end
 

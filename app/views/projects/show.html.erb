@@ -1,6 +1,6 @@
 <div class="floating_box">
 
-	<h2>Boards</h2>
+	<h2 style="color: white;">Boards</h2>
 		<% @project.boards.each do |board| %>
 			<div class="button_link">
 				<%= link_to "#{board.title}", board_path(board) %>
@@ -12,25 +12,22 @@
 			<div class="button_link">
 				<%= link_to "Edit this project", edit_project_path(@project) %>
 			</div>
+
+			<!-- <div class="button_link" style="background-color: green;">
+				<%= link_to "Approve Project", approve_project_path, :project_id => @project.id %>
+			</div> -->
+			<% if current_user.admin? %>
+				<%= form_tag approve_project_path do %>
+					<%= hidden_field_tag 'project_id', @project.id %>
+					<%= submit_tag "Approve Project", class: "button_approve_reject", style: "background-color: green;" %> <% end %>
+				<%= form_tag reject_project_path do %>
+					<%= hidden_field_tag 'project_id', @project.id %>
+					<%= submit_tag "Reject Project", :class => "button_approve_reject", style: "background-color: red;"%><% end %>
+			<% end %>
 </div>
 
 
 <div class="ui container fix">
-
-<% if current_user.admin? %>
-<span style="float: left;">
-	<%= form_tag approve_project_path do %>
-		<%= hidden_field_tag 'project_id', @project.id %>
-		<%= submit_tag "Approve Project", :class => "ui button green" %>
-		<% end %>
-		</span>
-<span style="float: left; clear: right;">
-	<%= form_tag reject_project_path do %>
-		<%= hidden_field_tag 'project_id', @project.id %>
-		<%= submit_tag "Reject Project", :class => "ui button red" %>
-		<% end %>
-		</span>
-	<% end %>
 
 	<div class="project-name-show">
 			<%= @project.title %>
