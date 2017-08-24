@@ -1,5 +1,5 @@
 <div class="container padded-container">
-	
+
 	<div class="user-info-box">
 		<div class="title-name">
 			<%= @user.full_name %><br><br>
@@ -7,7 +7,7 @@
 		<div class="user-email">
 		<%= @user.email %><br><br>
 		</div>
-	</div>	
+	</div>
 
 	<div class="projects ui grid">
 		<h2 id="project-title">Projects</h2>
@@ -18,7 +18,13 @@
 					<%= link_to "#{project.title}", project_path(project) %><br><br>
 					<hr>
 					<% project.images.sample(5).each do |image| %>
+
+					<% if image.url? %>
 						<%= image_tag image.url, class: "ui small image thumbnail-image" %>
+					<% elsif image.photo? %>
+						<%= image_tag image.photo, class: "ui small image thumbnail-image" %>
+					<% end %>
+
 						<% end %>
 				</div>
 			<% end %>
@@ -28,4 +34,3 @@
 	</div>
 
 </div>
-
