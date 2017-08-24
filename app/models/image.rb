@@ -6,4 +6,13 @@ class Image < ApplicationRecord
 	validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 	validates :url, :url => true, :allow_blank => true
 
+def file_for
+	if self.url?
+		self.url
+	elsif self.photo?
+		self.photo
+	end
+end
+
+
 end
