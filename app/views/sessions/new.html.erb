@@ -1,10 +1,11 @@
-<div class="container">
+<div class="ui container fix">
 	<% if flash[:message] %>
 		<%= flash[:message] %>
 		<br>
 		<br>
 	<% end %>
-	<%= form_tag login_path, id: "login" do %>
+	
+	<%= form_tag login_path, id: "login", class: "form" do %>
 		<div>
 			<label>Email:</label>
 			<%= text_field_tag 'user[email]' %>

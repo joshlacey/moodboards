@@ -9,6 +9,9 @@
 	<div class="button_link">
 		<%= link_to "Edit", edit_board_path(@board) %><br>
 	</div>
+	<div class="button_link">
+		<%= link_to "Delete Board", board_path(@board), method: :delete %>
+		</div>
 </div>
 
 <div class="ui container fix">

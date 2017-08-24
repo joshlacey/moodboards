@@ -38,8 +38,9 @@ class ImagesController < ApplicationController
 
 	def destroy
 		@image = Image.find_by(id: params[:id])
+		@board = @image.board
 		@image.destroy
-		redirect_to images_path
+		redirect_to board_path(@board)
 	end
 
 	private

@@ -1,3 +1,13 @@
+<div class="floating_box">
+		<div class="button_link">
+		<%= link_to "Delete Image", image_path(@image), method: :delete %>
+		</div>
+	
+</div>
+
+
+
+
 <div class="ui container">
 	<div class="ui two column grid fix">
 		<div class="column">
@@ -11,6 +21,9 @@
 		  </span>
 			<span>Assocated with: <%= link_to "#{@image.board.title}", board_path(@image.board) %></span>
 
+		</div>
+<!--  End of first column  -->
+		<div class="column">
 			<%= form_tag '/comments', method: 'post' do %>
 				<div class="ui form">
 					<div class="field">
@@ -20,9 +33,6 @@
 				</div>
 				<%= submit_tag "Add a comment" %>
 			<% end %>
-		</div>
-<!--  End of first column  -->
-		<div class="column">
 			<div class="comment-padding">
 				<% if @image.comments %>
 					<% @image.comments.each do |comment| %>
