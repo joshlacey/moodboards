@@ -17,12 +17,12 @@
 
 		  <span style="margin-left: 35%;">Uploaded by:
 		  <% if current_user.admin? || current_user == @image.user %>
-		  <%= link_to "#{@image.user.full_name}", user_path(@image.user), class: "black" %>
+		  <%= link_to "#{@image.user.full_name}", user_path(@image.user) %>
 		  	<% else %>
 		  	<%= @image.user.full_name %>
 		  	<% end %>
 		  </span><br>
-			<span style="margin-left: 35%;">Displayed on Project: <%= link_to "#{@image.board.title}", board_path(@image.board), class: "black" %></span>
+			<span style="margin-left: 35%;">Displayed on Project: <%= link_to "#{@image.board.title}", board_path(@image.board) %></span>
 
 		</div>
 <!--  End of first column  -->

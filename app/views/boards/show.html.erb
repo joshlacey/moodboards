@@ -47,8 +47,7 @@
 					<div class="comment_display" style="height: 150px;">
 						<% if @board.comments %>
 							<% @board.comments.each do |comment| %>
-								<p><%= "#{comment.user.full_name}: #{comment.content}" %></p>
-								<hr class="line">
+								<p><%= "#{comment.user.full_name}: #{comment.content} (#{comment.created_at.strftime("%d %b. %Y")})" %></p>
 							<% end %>
 						<% end %>
 					</div>
