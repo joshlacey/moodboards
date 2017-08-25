@@ -1,0 +1,16 @@
+<div class="ui container fix">
+	<div class="form new-user">
+		<%= form_tag send_email_path(@user), {class: "ui form"} do %>
+			
+			<label class="label_styling">Subject:</label><br><br>
+			<%= text_field_tag 'email_subject', nil, {class: "field_styling"} %><br><br><br><br>
+
+
+			<label class="label_styling">Enter Message Here:</label><br><br>
+			<%= text_area_tag 'email_message', nil, {class: "field_styling"} %><br><br>
+
+			<%= submit_tag "Send Email", :class => "ui button", :style => "margin-top: 10px; margin-left: 10px;" %>
+
+		<% end %>
+	</div>
+</div>

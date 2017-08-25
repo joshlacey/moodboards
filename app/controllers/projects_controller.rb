@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
     @project.approve
     @project.save
     @project.users.each do |user|
-      ApproveRejectEmailMailer.email_approval(user, @project).deliver
+      EmailMailer.email_approval(user, @project).deliver
     end
     redirect_to project_path(@project)
   end
@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
     @project.reject
     @project.save
     @project.users.each do |user|
-      ApproveRejectEmailMailer.email_rejection(user, @project).deliver
+      EmailMailer.email_rejection(user, @project).deliver
     end
     redirect_to project_path(@project)
   end

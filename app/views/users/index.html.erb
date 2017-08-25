@@ -23,7 +23,7 @@
       </td>
       <td class="center aligned six wide">
       	<h3>
-      		<%= user.email %>
+      		<%= link_to "#{user.email}", email_user_path(user), class: "black", style: "text-decoration: underline;" %>
       	</h3>
       </td>
       <td class="center aligned">

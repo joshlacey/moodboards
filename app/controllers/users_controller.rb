@@ -45,7 +45,24 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
+  def new_email_message
+    @user = User.find_by(id: params[:id])
+    render :email_form
+  end
+
+  def send_email
+    @user = User.find_by(id: params[:id])
+    @body = params[:email_message]
+    @subject = params[:email_subject]
+    EmailMailer.email_user(@user, @subject, @body).deliver
+    redirect_to users_path
+  end
+
   private
+
+  def email_params
+    params.require(:email).permit(:subject, :message)
+  end
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :admin, :password, :password_confirmation, :email)
