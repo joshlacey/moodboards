@@ -1,26 +1,25 @@
-<div class="container flex padded-container" style="padding-top: 60px; height: 100%;">
-	<div style="display: inline-block; width: 20%; height: 600px; background-color: black;" >
-		<div style="color: white; font-size: 3vw; height: 60px;">
-			<%= @user.full_name %>
+<div class="container padded-container">
+
+	<div class="user-info-box">
+		<div class="title-name" style="color: white;">
+			<%= @user.full_name %><br><br>
 		</div>
-		<div style="font-size: 1vw; color: white; font-weight: light; margin-left: 5px; height: 100%; ">
-				<%= @user.email %><br><br>
+		<div class="user-email" style="color: white;">
+		<%= @user.email %><br><br>
 		</div>
 	</div>
 
-
-	<div style="display: inline-block; width: 75%; border-left: 2px solid white; height: 100%;">
-		<div style="padding-left: 20px;"><h2 >Projects</h2></div>
+	<div class="projects ui grid">
+		<h2 id="project-title">Projects</h2>
+			<div class="four wide column"></div>
 		<% if @projects %>
 			<% @projects.each do |project| %>
-					<%= link_to "#{project.title}", project_path(project), style: "position: absolute; right: 80px; padding-top: 15px; font-size: 20px; white-space: nowrap;" %>
-					<div style="padding-top: 30px;">
+				<div class="ten wide column shift-right" style="margin-top: 10px;">
+					<%= link_to "#{project.title}", project_path(project) %><br><br>
 					<hr>
-					<div style="padding-left: 10%;">
 					<% project.images.sample(5).each do |image| %>
 						<%= image_tag image.file_for, class: "ui small image thumbnail-image user-show-image", style: "background-color: white; margin-left: 10px;" %>
 						<% end %>
-					</div>
 				</div>
 			<% end %>
 		<% else %>
