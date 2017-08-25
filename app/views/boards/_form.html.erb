@@ -8,7 +8,7 @@
 
 			<div class="field field_container" style="width: 500px;">
 				<%= f.label :project_id, "Associated Project", class: "label_styling" %>
-				<%= f.collection_select :project_id, Project.all, :id, :title, {}, {style: "float: right; border-radius: 0; -webkit-appearance: none; padding: 4px;"}%><br><br>
+				<%= f.collection_select :project_id, Project.all, :id, :title, {:selected => session[:project_id]}, {style: "float: right; border-radius: 0; -webkit-appearance: none; padding: 4px;"}%><br><br>
 			</div>
 				<%= f.submit :class => "ui button"%>
 		</div>
