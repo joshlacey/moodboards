@@ -16,8 +16,8 @@
 
 <div class="ui container fix">
 
-	<div class="board-show-title">
-		<%= @board.title  %><br>
+	<div class="board-show-title" style="text-align: center;">
+		<%= @board.title %><br>
 	</div>
 
 	<% if @board.images.count == 0 %><div class="ui container" style="background-color: black; height: 400px; padding: 30%; text-align: center;"><h1>You currently have no images for this board</h1></div><% end %>
@@ -45,7 +45,7 @@
 					<% end %>
 				</div>
 				<div class="column" style="height: 200px;">
-					
+
 					<div class="comment_display" style="height: 150px;">
 						<% if @board.comments %>
 							<% @board.comments.each do |comment| %>

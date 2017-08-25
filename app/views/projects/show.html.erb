@@ -9,10 +9,10 @@
 			<% if current_user.admin? %>
 				<%= form_tag approve_project_path do %>
 					<%= hidden_field_tag 'project_id', @project.id %>
-					<%= submit_tag "Approve Project", class: "button_approve_reject green", style: "background-color: green;", data: {confirm: "Are you sure you want to approve this project?"} %> <% end %>
+					<%= submit_tag "Approve Project", class: "button_approve_reject", style: "background-color: #2f883f;", data: {confirm: "Are you sure you want to approve this project?"} %> <% end %>
 				<%= form_tag reject_project_path do %>
 					<%= hidden_field_tag 'project_id', @project.id %>
-					<%= submit_tag "Reject Project", :class => "button_approve_reject red", style: "background-color: red;", data: {confirm: "Are you sure you want to reject this project?"}%><% end %>
+					<%= submit_tag "Reject Project", :class => "button_approve_reject", style: "background-color: #b2523e;", data: {confirm: "Are you sure you want to reject this project?"}%><% end %>
 			<% end %>
 
 

@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+/* @import url('fonts.googleapis.com/css?family=Open+Sans'); */
+
+/* including Google's css at the top of your file */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Quicksand');
 
 @import "semantic-ui";
 @import "semantic-ui/collections/menu";
 @import "masonry";
 
 
-
 //***Body***//
-
-@headerFont        : 'Open Sans', sans-serif;
-@pageFont          : 'Open Sans', sans-serif;
-@googlefontrequest : 'Open+Sans:400regular';
-
-$font-family: 'Open Sans', sans-serif;
 
 body {
   background: #000;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   color: white;
+}
+
+.title-name {
+  font-family: 'Quicksand', sans-serif !important;
 }
 
 .board-show-title {
@@ -50,6 +50,8 @@ body {
   none; width: 150px;
   border-left-color: black;
 }
+
+
 
 //***Links***//
 
@@ -87,6 +89,10 @@ a.black:hover {
 
 //***Main content***//
 
+h1, h2, h3, h4, h5 {
+  font-family: 'Quicksand';
+}
+
 hr.line {
   border-top: 1px solid #ccc;
   width: 70%; margin-left: 0;
@@ -98,7 +104,7 @@ span.title {
 }
 
 div.ui.menu {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   border-radius: 0;
   min-height: inherit;
   width: 150px;
@@ -109,7 +115,7 @@ div.ui.menu {
 }
 
 div.ui.simple.dropdown.item {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   border-radius: 0;
   min-height: inherit;
   width: 150px;
@@ -120,7 +126,7 @@ div.ui.simple.dropdown.item {
 }
 
 div.ui.simple.dropdown.item:hover {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   border-radius: 0;
   min-height: inherit;
   width: 150px;
@@ -163,6 +169,7 @@ div.ui.simple.dropdown.item:hover {
 input.ui.button {
   margin-left: 80px;
    margin-top: 80px;
+   font-family: 'Quicksand';
 }
 
 
