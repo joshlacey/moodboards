@@ -3,13 +3,13 @@
   <thead>
     <tr>
       <th class="center aligned">
-      	<h2>User</h2>
+      	<h2 class="ui header">User</h2>
       </th>
       <th class="center aligned">
-      	<h2>Email</h2>
+      	<h2 class="ui header">Email</h2>
       </th>
       <th class="center aligned">
-      	<h2>Admininstrator?</h2>
+      	<h2 class="ui header">Admininstrator?</h2>
       </th>
     </tr>
   </thead>
@@ -33,7 +33,7 @@
       		<% else %>
       			<%= "No" %>
       		<% end %>
-      		 (<%= link_to "Edit", edit_user_path(user), class: "black" %>)
+           <%= link_to "<i class='write icon'></i>".html_safe, edit_user_path(user), class: "black" %>
       	</h3>
 
       </td>
