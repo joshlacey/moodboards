@@ -19,7 +19,7 @@
 		  		<%= link_to "See All Users", users_path, class: "ui item" %>
 		  		<%= link_to "See All Projects", projects_path, class: "ui item" %>
 		  	<% end %>
-		  	<% if @project %>
+		  	<% if @project && !current_page?(new_project_path) %>
 		  		<% if @project.status == "pending" %>
 						<span class="ui horizontal label" style="border-radius: 0 15px 15px 0; background-color: #b2a13e; color: white; font-size: 1em; padding-top: 12px; padding-left: 35px; padding-right: 35px;">
 							Project &nbsp;&nbsp;&nbsp;<%= @project.status.capitalize %>
