@@ -1,10 +1,10 @@
 
 <div class="floating_box", style="margin-right: 10px;">
 	<div class="button_link">
-		<%= link_to "Back to #{@board.project.title} Project", project_path(@board.project) %>
+		<%= link_to "< Back to Project", project_path(@board.project) %>
 	</div>
 	<div class="button_link">
-		<%= link_to "Add An Image To This Board", new_image_path %>
+		<%= link_to "Add An Image", new_image_path %>
 	</div>
 	<div class="button_link">
 		<%= link_to "Edit This Board", edit_board_path(@board) %><br>
@@ -16,7 +16,7 @@
 
 <div class="ui container fix">
 
-	<div class="board-show-title" style="text-align: center;">
+	<div class="board-show-title" style="text-align: right;">
 		<%= @board.title %><br>
 	</div>
 

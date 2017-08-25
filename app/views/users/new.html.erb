@@ -1,24 +1,25 @@
 <div class="ui container fix">
 	<div class="new-project project-desc">
-		<%= form_for @user do |f| %>
+		<%= form_for @user, {class: "ui form"} do |f| %>
+			<div class="form_container" style="padding-top: 100px; border: none;">
 
-			<%= f.label :first_name %><br><br>
-			<%= f.text_field :first_name %><br><br>
+					<%= f.label :first_name %><br><br>
+					<%= f.text_field :first_name, style: "border: none; padding: 2px; border-radius: 3px;" %><br><br>
 
-			<%= f.label :last_name %><br><br>
-			<%= f.text_field :last_name %><br><br>
+				<%= f.label :last_name %><br><br>
+				<%= f.text_field :last_name, style: "border: none; padding: 2px; border-radius: 3px;" %><br><br>
 
-			<%= f.label :email %><br><br>
-			<%= f.text_field :email %><br><br>
+				<%= f.label :email %><br><br>
+				<%= f.text_field :email, style: "border: none; padding: 2px; border-radius: 3px;" %><br><br>
 
-			<%= f.label :password %><br><br>
-			<%= f.password_field :password %><br><br>
+				<%= f.label :password %><br><br>
+				<%= f.password_field :password, style: "border: none; padding: 2px; border-radius: 3px;" %><br><br>
 
-			<%= f.label :password_confirmation %><br><br>
-			<%= f.password_field :password_confirmation %><br><br>
+				<%= f.label :password_confirmation %><br><br>
+				<%= f.password_field :password_confirmation, style: "border: none; padding: 2px; border-radius: 3px;" %><br><br>
 
-			<%= f.submit :class => "ui button" %>
-
+				<%= f.submit :class => "ui button", style: "margin-left: 15%;" %>
+			</div>
 		<% end %>
 	</div>
 </div>

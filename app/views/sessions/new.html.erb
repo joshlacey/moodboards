@@ -4,20 +4,26 @@
 		<br>
 		<br>
 	<% end %>
-	
-	<%= form_tag login_path, id: "login", class: "form" do %>
-		<div>
-			<label>Email:</label>
-			<%= text_field_tag 'user[email]' %>
-		</div>
-		<div>
-			<label>Password:</label>
-			<%= password_field_tag 'user[password]' %>
-		</div>
-		<div>
-			<%= submit_tag "Log In", class: "ui secondary button" %>
-		</div>
-	<% end %>
+
+
+
+	<div class="form_container project-desc" style="padding-top: 100px; border: none; margin-left: 20%;">
+		<%= form_tag login_path, id: "login", class: "form" do %>
+			<div style="text-align: center;">
+				<label>Email</label>
+				<%= text_field_tag 'user[email]', nil , style: "border: none; padding: 2px; border-radius: 3px;" %>
+			</div>
+			<div style="text-align: center;">
+				<label >Password</label>
+				<%= password_field_tag 'user[password]', nil, style: "border: none; padding: 2px; border-radius: 3px;" %>
+			</div>
+			<div>
+				<%= submit_tag "Log In", class: "ui secondary button", style: "margin-left: 30%;" %>
+			</div>
+		<% end %>
+	</div>
+
+
 <br><br><br>
 <h1 class="flashing", style="font-size:8em; text-align: center; margin-bottom: 0px;">MOODBOARDS</h1>
 <h4 class="flashing", style="font-size:3em; text-align: right; margin-right: 15%; margin-top: 0px;">Inc.</h4>
