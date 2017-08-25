@@ -1,15 +1,16 @@
 <div class="floating_box", style="margin-right: 10px;"">
 
 	<div class="button_link">
-		<%= link_to "Edit this project", edit_project_path(@project) %>
+		<%= link_to "Edit This Project", edit_project_path(@project) %>
 	</div>
 
 
 
-			<% if current_user.admin? %>
+			<% if current_user.admin? && @project.status != "approved" %>
 				<%= form_tag approve_project_path do %>
 					<%= hidden_field_tag 'project_id', @project.id %>
 					<%= submit_tag "Approve Project", class: "button_approve_reject", style: "background-color: #2f883f;", data: {confirm: "Are you sure you want to approve this project?"} %> <% end %>
+			<% elsif current_user.admin? && @project.status != "rejected"%>
 				<%= form_tag reject_project_path do %>
 					<%= hidden_field_tag 'project_id', @project.id %>
 					<%= submit_tag "Reject Project", :class => "button_approve_reject", style: "background-color: #b2523e;", data: {confirm: "Are you sure you want to reject this project?"}%><% end %>

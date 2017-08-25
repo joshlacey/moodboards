@@ -17,10 +17,19 @@ class CommentsController < ApplicationController
 		@comment.user = current_user
 		if @comment.save
 			if @comment.image_id
+				@comment.image.board.project.users.each do |user|
+					EmailMailer.notify_image_comment(user, @comment).deliver
+				end
 				redirect_to image_path(@comment.image)
 			elsif @comment.board_id
+				@comment.board.project.users.each do |user|
+					EmailMailer.notify_board_comment(user, @comment).deliver
+				end
 				redirect_to board_path(@comment.board)
 			elsif @comment.project_id
+				@comment.project.users.each do |user|
+					EmailMailer.notify_project_comment(user, @comment).deliver
+				end
 				redirect_to project_path(@comment.project)
 			end
 		else
