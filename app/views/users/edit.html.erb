@@ -1,23 +1,24 @@
 <div class="ui container fix">
-	<div class="form new-user">
-		<%= form_for @user do |f| %>
+	<div class="new-project project-desc">
+		<%= form_for @user, {class: "ui form"} do |f| %>
+			<div class="form_container" style="padding-top: 100px; border: none;">
 
-			<%= f.label :first_name %><br>
-			<%= f.text_field :first_name %><br><br>
+					<%= f.label :first_name %><br><br>
+					<%= f.text_field :first_name, style: "border: none; padding: 2px; border-radius: 3px;" %><br><br>
 
-			<%= f.label :last_name %><br>
-			<%= f.text_field :last_name %><br><br>
+				<%= f.label :last_name %><br><br>
+				<%= f.text_field :last_name, style: "border: none; padding: 2px; border-radius: 3px;" %><br><br>
 
-			<%= f.label :email %><br>
-			<%= f.text_field :email %><br><br>
+				<%= f.label :email %><br><br>
+				<%= f.text_field :email, style: "border: none; padding: 2px; border-radius: 3px;" %><br><br>
 
-			<% if current_user.admin? %>
-				<%= f.label :admin, "Are you an administrator?"%>&nbsp;&nbsp;
-				<%= f.check_box :admin %><br><br>
-			<% end %>
+				<% if current_user.admin? %>
+					<%= f.label :admin, "Are you an administrator?"%>&nbsp;&nbsp;
+					<%= f.check_box :admin %><br><br>
+				<% end %>
 
-			<%= f.submit :class => "ui button" %>
-
+				<%= f.submit :class => "ui button", style: "margin-left: 15%;" %>
+			</div>
 		<% end %>
 	</div>
 </div>
