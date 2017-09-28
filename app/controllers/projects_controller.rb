@@ -45,9 +45,9 @@ class ProjectsController < ApplicationController
     @project = Project.find_by(id: params[:project_id])
     @project.approve
     @project.save
-    @project.users.each do |user|
-      EmailMailer.email_approval(user, @project).deliver
-    end
+    # @project.users.each do |user|
+    #   EmailMailer.email_approval(user, @project).deliver
+    # end
     redirect_to project_path(@project)
   end
 
@@ -55,12 +55,12 @@ class ProjectsController < ApplicationController
     @project = Project.find_by(id: params[:project_id])
     @project.reject
     @project.save
-    @project.users.each do |user|
-      EmailMailer.email_rejection(user, @project).deliver
-    end
+    # @project.users.each do |user|
+    #   EmailMailer.email_rejection(user, @project).deliver
+    # end
     redirect_to project_path(@project)
   end
-  
+
   private
 
   def project_params
