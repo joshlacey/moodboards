@@ -12,6 +12,8 @@ def file_for
 		self.url
 	elsif self.photo?
 		self.photo
+	else
+		nil
 	end
 end
 

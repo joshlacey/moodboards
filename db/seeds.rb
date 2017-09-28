@@ -50,7 +50,7 @@ images = [{title: "image_3", board_id: Board.find_by(title: "Mood").id, user_id:
   {title: "image_2", board_id: Board.find_by(title: "Direction").id, user_id: User.find_by(first_name: "Steven").id, url: "tilda/pl_designarchitecture1_f2.jpg"},
   {title: "image_3", board_id: Board.find_by(title: "Direction").id, user_id: User.find_by(first_name: "Steven").id, url: "tilda/modernist-doll-houses-wolfgang-sirch-christoph-bitzer-design-childs-dream-t.jpeg"},
   {title: "image_4", board_id: Board.find_by(title: "Direction").id, user_id: User.find_by(first_name: "Steven").id, url: "tilda/interior-pf-Modern-Church-Design-in-Mexico.jpeg"},
-  {title: "image_5", board_id: Board.find_by(title: "Direction").id, user_id: User.find_by(first_name: "James").id, url: "tilda/interior-house-design-excellent-modern-japanese-architecture-with-eksposed-black-metal-stair-and-modern-swimming-pool-as-a-complement-amazing-modern-japanese-architecture.jpg"},
+  {title: "image_5", board_id: Board.find_by(title: "Direction").id, user_id: User.find_by(first_name: "James").id, url: "tilda/something-cool-is-here.jpg"},
   {title: "image_6", board_id: Board.find_by(title: "Direction").id, user_id: User.find_by(first_name: "James").id, url: "tilda/holy-rosary-church-trahan-600x600.jpg"},
   {title: "image_7", board_id: Board.find_by(title: "Direction").id, user_id: User.find_by(first_name: "James").id, url: "tilda/773085293_hisao-magma-7.jpg"}
 ]
