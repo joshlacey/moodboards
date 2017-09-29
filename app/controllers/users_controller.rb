@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
   before_action :require_login, except: [:new, :create]
+  before_action :admin?, only: [:index]
 
   def index
     @users = User.all
   end
 
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to user_path(current_user)
+    else
+      @user = User.new
+    end
   end
 
   def create

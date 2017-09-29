@@ -10,11 +10,11 @@
 	<div class="form_container project-desc" style="padding-top: 100px; border: none; margin-left: 20%;">
 		<%= form_tag login_path, id: "login", class: "form" do %>
 			<div style="text-align: center;">
-				<label>Email</label>
+				<label>Email</label><br>
 				<%= text_field_tag 'user[email]', nil , style: "border: none; padding: 2px; border-radius: 3px;" %>
 			</div>
 			<div style="text-align: center;">
-				<label >Password</label>
+				<label >Password</label><br>
 				<%= password_field_tag 'user[password]', nil, style: "border: none; padding: 2px; border-radius: 3px;" %>
 			</div>
 			<div>
