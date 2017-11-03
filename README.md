@@ -1,24 +1,11 @@
-# README
+# Moodboards Inc
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A rails only application for mananging image boards. 
 
-Things you may want to cover:
+[View Live Demo](https://moodboards-inc.herokuapp.com/)
 
-* Ruby version
+#### Admin has ability to approve or reject boards.
+- *Admin Login: Admin<i></i>@email.com      Password: password*
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Client is view only but can comment on boards.
+- *Client Login: clientview<i></i>@gmail.com  Password: password*
