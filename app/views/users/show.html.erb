@@ -17,7 +17,7 @@
 				<div class="ten wide column shift-right" style="margin-top: 10px;">
 					<%= link_to "#{project.title}", project_path(project) %><br><br>
 					<hr>
-					<% project.images.sample(6).each do |image| %>
+					<% project.images.sample(5).each do |image| %>
 						<%= image_tag image.file_for, class: "ui small image thumbnail-image user-show-image", style: "background-color: white; margin-left: 10px;" %>
 						<% end %>
 				</div>
