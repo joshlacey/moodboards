@@ -10,10 +10,8 @@ class Image < ApplicationRecord
 def file_for
 	if self.url?
 		self.url
-	elsif self.photo?
-		self.photo
 	else
-		nil
+		"https://i.imgur.com/hLaTtcg.jpg"
 	end
 end
 
